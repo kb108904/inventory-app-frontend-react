@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { onAuthStateChanged } from "firebase/auth";
-import { auth } from '../firebase';
+import { auth } from '../firebase'
 import "./Body-Section.css";
 
 import Inventory from "./Inventory";
@@ -8,10 +8,16 @@ import Inventory from "./Inventory";
 function Body() {
 
 
-    const [formData, setFormData] = useState({
+  interface InventoryFormData {
+    title:string,
+    quantity: number,
+    picture: File | undefined
+  }
+
+    const [formData, setFormData] = useState<InventoryFormData>({
         title: "",
-        quantity: "",
-        picture: null,
+        quantity: 0,
+        picture: undefined,
       });
 
       const [loginData, setLoginStatus] = useState({
@@ -19,7 +25,7 @@ function Body() {
         userUID: "",
       })
     
-      const handleInputChange = (e) => {
+      const handleInputChange = (e:React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setFormData({
           ...formData,
@@ -27,15 +33,15 @@ function Body() {
         });
       };
     
-      const handleFileChange = (e) => {
-        const file = e.target.files[0];
+      const handleFileChange = (e:React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
         setFormData({
           ...formData,
           picture: file,
         });
       };
     
-      const handleSubmit = (e) => {
+      const handleSubmit = (e:React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         // Handle form submission, e.g., sending data to the server
       };
