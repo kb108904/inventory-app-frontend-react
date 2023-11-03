@@ -6,7 +6,7 @@ import Register from './Components/auth/Register'
 
 import { BrowserRouter as Router} from 'react-router-dom';
 import {Routes, Route, } from 'react-router-dom';
-import UnderConstruction from "./Components/error/UnderConstruction";
+import UnderConstruction from "./Components/error/Under-Construction";
 
 
 
