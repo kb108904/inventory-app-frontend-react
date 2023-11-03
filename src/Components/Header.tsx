@@ -1,13 +1,14 @@
 import React from "react";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import "./Header.css";
+import logoImgSrc from '../assets/inventory_64_64_icon.png'
 
 function Header() {
   return (
     <header className="header">
       <img
         className="header-logo"
-        src="../src/assets/pp.png"
+        src={logoImgSrc}
         alt="header logo image"
       />
       <nav className="nav-bar">
