@@ -41,20 +41,5 @@ a {
 
 .button-container {
   display: flex;
-  gap: 10px;}
-
-.login-button,
-.register-button {
-  background-color: #0568e8;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-}
-
-.login-button:hover,
-.register-button:hover, 
-.login-button:focus,
-.register-button:focus {
-  background-color: #0656d1;
+  gap: 10px; /* Add space between buttons */
 }
