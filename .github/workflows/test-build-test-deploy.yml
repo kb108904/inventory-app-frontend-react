@@ -1,0 +1,36 @@
+
+name: s3-test-deploy
+
+on:
+  push:
+    branches:
+      - test
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build:test --if-present
+      - run: npm test --if-present
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ vars.AWS_REGION }}
+
+      - name: Build React App
+        run: npm install && npm run build
+
+      - name: Deploy app build to S3 bucket
+        run: aws s3 sync ./dist/ s3://inventory-app-frontend-react-test --delete

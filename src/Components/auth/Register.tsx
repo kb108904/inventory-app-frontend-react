@@ -9,7 +9,7 @@ const Register = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('');
  
-    const onSubmit = async (e) => {
+    const onSubmit = async (e:React.MouseEvent<HTMLButtonElement>) => {
       e.preventDefault()
      
       await createUserWithEmailAndPassword(auth, email, password)
@@ -42,7 +42,6 @@ const Register = () => {
                             </label>
                             <input
                                 type="email"
-                                label="Email address"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}  
                                 required                                    
@@ -56,7 +55,6 @@ const Register = () => {
                             </label>
                             <input
                                 type="password"
-                                label="Create password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)} 
                                 required                                 
