@@ -1,3 +1,20 @@
 .body-section {
     display: flex;
+    max-height: 100%;
 }
+
+.FormInput {
+    border-right: 5px solid #ccc;
+    display: flex;
+    padding: 10px;
+    margin: 5px;
+  }
+  
+  .FormInput input {
+    width: 100%;
+  }
+  
+  .FormInput label {
+    font-weight: bold;
+  }
+  
