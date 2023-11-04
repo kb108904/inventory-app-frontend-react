@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from '../firebase'
 import "./Body-Section.css";
+import   useFirebaseAuthentication from '../Hooks/FirebaseAuthentication'
 
 import Inventory from "./Inventory";
 
@@ -24,6 +25,8 @@ function Body() {
         isLoggedIn: false,
         userUID: "",
       })
+
+      useFirebaseAuthentication(setLoginStatus);
     
       const handleInputChange = (e:React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
@@ -45,35 +48,6 @@ function Body() {
         e.preventDefault();
         // Handle form submission, e.g., sending data to the server
       };
-
-       
-    useEffect(()=>{
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-              // User is signed in, see docs for a list of available properties
-              // https://firebase.google.com/docs/reference/js/firebase.User
-              const uid = user.uid;
-              // ...
-              console.log("uid", uid)
-              setLoginStatus({
-                ...loginData,
-                isLoggedIn: true,
-                userUID: uid,
-              })
-            } else {
-              // User is signed out
-              // ...
-              console.log("user is logged out")
-              setLoginStatus({
-                ...loginData,
-                isLoggedIn: false,
-                userUID: '',
-              })
-            }
-          });
-         
-    }, [])
-
 
     if(loginData.isLoggedIn){
         return (

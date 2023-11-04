@@ -1,0 +1,12 @@
+.app-button {
+  background-color: #0568e8; /* Button background color */
+  color: #fff; /* Button text color */
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.app-button:hover,
+.app-button:focus {
+  background-color: #0656d1; /* Button background color */
+}

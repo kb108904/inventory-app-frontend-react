@@ -41,19 +41,3 @@ a {
   display: flex;
   gap: 10px; /* Add space between buttons */
 }
-
-.login-button,
-.register-button {
-  background-color: #0568e8; /* Button background color */
-  color: #fff; /* Button text color */
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-}
-
-.login-button:hover,
-.register-button:hover, 
-.login-button:focus,
-.register-button:focus {
-  background-color: #0656d1; /* Button background color */
-}

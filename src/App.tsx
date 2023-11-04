@@ -2,6 +2,7 @@ import Header from "./Components/Header";
 import Body from "./Components/Body-Section";
 
 import Login from "./Components/auth/Login";
+import Logout from "./Components/auth/Logout";
 import Register from "./Components/auth/Register";
 
 import { BrowserRouter as Router } from "react-router-dom";
@@ -28,6 +29,7 @@ function App() {
               <Route path="/register" element={<Register />} />
               <Route path="/home" element={<Body />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/logout" element={<Logout />} />
             </Routes>
           </main>
         </Router>
